@@ -30,12 +30,12 @@ public class Boar : MonoBehaviour
             Destroy(this.gameObject);
             Instantiate(fx, new Vector3(rbody2D.transform.position.x, rbody2D.transform.position.y), Quaternion.identity);
         }
-        /*
+        
         if (other.gameObject.CompareTag("Catch"))
         {
             Destroy (this.gameObject);
         }
-        */
+        
     }
 
     public void OnClickBoar()

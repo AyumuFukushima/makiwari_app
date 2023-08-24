@@ -46,11 +46,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        private void OnTimeUp()
+    private void OnTimeUp()
     {
         // ここに制限時間が終了したときの処理を書く
         GameRetryUI.SetActive(true);
         SwingUI.SetActive(false);
+
+        Invoke("ToResult", 3);
+    }
+
+    private void ToResult()
+    {
+        SceneManager.LoadScene("Result");
     }
     
      //時間をUI Textに表示するメソッド
