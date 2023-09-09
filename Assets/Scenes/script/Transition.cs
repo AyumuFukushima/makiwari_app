@@ -7,7 +7,7 @@ public class Transition : MonoBehaviour
 {
     public void toGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("GameCountDown");
     }
 
     public void toTitle()
