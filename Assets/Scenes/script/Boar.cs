@@ -28,6 +28,7 @@ public class Boar : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
+            VibrationMng.ShortVibration();//スマホ振動実行
             Instantiate(fx, new Vector3(rbody2D.transform.position.x, rbody2D.transform.position.y), Quaternion.identity);
         }
         
