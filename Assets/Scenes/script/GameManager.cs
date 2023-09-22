@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public float timeLimitInSeconds = 60f; // 制限時間（秒）
     private float currentTime = 0f;
     private bool isTimeUp = false;
-    public GameObject GameRetryUI;
-    public GameObject SwingUI;
     public Text timeText; // UI Textコンポーネントを格納する変数
 
     private int woodCount = 0; // 薪の数を管理する変数
@@ -49,16 +47,17 @@ public class GameManager : MonoBehaviour
     private void OnTimeUp()
     {
         // ここに制限時間が終了したときの処理を書く
-        GameRetryUI.SetActive(true);
-        SwingUI.SetActive(false);
+        PlayerPrefs.SetInt("WoodCount", woodCount);//薪の数をリザルト画面に渡す。
 
-        Invoke("ToResult", 3);
+        //薪の数によってリザルト画面の表示を変更する。
+        if(woodCount>=15){//薪を割った数が15以上なら豪華リザルトに遷移
+            SceneManager.LoadScene("RichResult");//豪華リザルト画面に遷移
+        }
+         if(woodCount<=14){//薪を割った数が14以下なら通常リザルトに遷移
+            SceneManager.LoadScene("Result");//リザルト通常画面に遷移
+        }
     }
 
-    private void ToResult()
-    {
-        SceneManager.LoadScene("Result");
-    }
     
      //時間をUI Textに表示するメソッド
     private void UpdateTimeText()
@@ -78,6 +77,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseWoodCount()
     {
         woodCount++;
+
         UpdateWoodCountText(); // 薪の数を表示を更新する
     }
 
