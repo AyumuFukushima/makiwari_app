@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8692294157199381736}
   - component: {fileID: 359295479846232174}
   - component: {fileID: 3143017573571693126}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6782240729776367523}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4233, y: -1.6971, z: 0}
+  m_LocalPosition: {x: -3, y: -2, z: 0}
   m_LocalScale: {x: 0.31200004, y: 0.37787965, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &359295479846232174
 SpriteRenderer:
