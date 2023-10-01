@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 852082591}
   - component: {fileID: 852082590}
   m_Layer: 0
-  m_Name: ken_motion_makiwari_1
+  m_Name: ken_Standing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: e44c2b3f6e3e0a14ba7afabbfb237b80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bda0de9db5759c4ea1d682809daa18c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
