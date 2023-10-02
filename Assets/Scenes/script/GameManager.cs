@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour
         // ここに制限時間が終了したときの処理を書く
         GameRetryUI.SetActive(true);
         SwingUI.SetActive(false);
+        //SEを再生
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
 
         Invoke("ToResult", 3);
     }
