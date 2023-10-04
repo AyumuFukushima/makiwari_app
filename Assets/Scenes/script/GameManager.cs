@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private float currentTime = 0f;
     private bool isTimeUp = false;
     public Text timeText; // UI Textコンポーネントを格納する変数
+    public Outline outline;
 
     private int woodCount = 0; // 薪の数を管理する変数
     public Text woodCountText; // UI Textコンポーネントを格納する変数
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         currentTime = timeLimitInSeconds;
         woodCountText = GameObject.Find("WoodCountText").GetComponent<Text>(); // 薪の数のUI Textコンポーネントを取得
         timeText = GameObject.Find("TimeText").GetComponent<Text>();// UI Textコンポーネントを取得
+        outline = GameObject.Find("TimeText").GetComponent<Outline>();
         UpdateWoodCountText(); // 薪の数を表示する
         UpdateTimeText(); // 時間を表示する
     }
@@ -64,13 +66,19 @@ public class GameManager : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(currentTime / 60f);
         int seconds = Mathf.FloorToInt(currentTime % 60f);
-        timeText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+        if(seconds<=5){//5秒以下ならカウントの色を赤色、アウトラインの色を白に変更する。
+            timeText.color = Color.red;
+            outline.effectColor = Color.white;
+            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }else{
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
     
     // 薪の数をUI Textに表示するメソッド
     private void UpdateWoodCountText()
     {
-        woodCountText.text = "Wood: " + woodCount.ToString();
+        woodCountText.text = woodCount.ToString();
     }
 
      // 薪の数を増やす関数
