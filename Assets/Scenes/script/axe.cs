@@ -38,7 +38,6 @@ public class axe : MonoBehaviour
         Destroy(Collision.gameObject);
         GameObject newWood = Instantiate(brokenWoodPrefab, newWoodPosition, Quaternion.identity);//割れた薪の生成
 
-
             GameManager GameManager = FindObjectOfType<GameManager>();
             if (GameManager != null)
             {

@@ -51,13 +51,8 @@ public class GameManager : MonoBehaviour
         // ここに制限時間が終了したときの処理を書く
         PlayerPrefs.SetInt("WoodCount", woodCount);//薪の数をリザルト画面に渡す。
 
-        //薪の数によってリザルト画面の表示を変更する。
-        if(woodCount>=15){//薪を割った数が15以上なら豪華リザルトに遷移
-            SceneManager.LoadScene("RichResult");//豪華リザルト画面に遷移
-        }
-         if(woodCount<=14){//薪を割った数が14以下なら通常リザルトに遷移
-            SceneManager.LoadScene("Result");//リザルト通常画面に遷移
-        }
+        SceneManager.LoadScene("Timeup");//timeup画面に遷移
+
     }
 
     
@@ -78,7 +73,7 @@ public class GameManager : MonoBehaviour
     // 薪の数をUI Textに表示するメソッド
     private void UpdateWoodCountText()
     {
-        woodCountText.text = woodCount.ToString();
+        woodCountText.text = woodCount.ToString("D2");
     }
 
      // 薪の数を増やす関数
