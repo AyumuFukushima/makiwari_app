@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Floor
   - Catch
+  - KEN
+  - enemy
+  - axe
   layers:
   - Default
   - TransparentFX

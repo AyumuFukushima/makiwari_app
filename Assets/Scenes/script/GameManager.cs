@@ -53,7 +53,15 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("Timeup");//timeup画面に遷移
 
+        //SEを再生
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+        SceneManager.LoadScene("Timeup");//timeup画面に遷移
     }
+    
 
     
      //時間をUI Textに表示するメソッド
