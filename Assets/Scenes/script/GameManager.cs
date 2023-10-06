@@ -49,6 +49,13 @@ public class GameManager : MonoBehaviour
         // ここに制限時間が終了したときの処理を書く
         PlayerPrefs.SetInt("WoodCount", woodCount);//薪の数をリザルト画面に渡す。
 
+        //SEを再生
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         //薪の数によってリザルト画面の表示を変更する。
         if(woodCount>=15){//薪を割った数が15以上なら豪華リザルトに遷移
             SceneManager.LoadScene("RichResult");//豪華リザルト画面に遷移
