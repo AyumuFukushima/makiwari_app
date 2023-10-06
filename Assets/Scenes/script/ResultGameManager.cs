@@ -18,7 +18,7 @@ public class ResultGameManager : MonoBehaviour
     // 薪の数をUI Textに表示するメソッド
     private void UpdateWoodCountText()
     {
-        woodCountText.text = "割った数 " + woodCount.ToString();
+        woodCountText.text = woodCount.ToString("D2");
     }
     // Update is called once per frame
 }
