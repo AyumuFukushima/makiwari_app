@@ -30,6 +30,12 @@ public class axe : MonoBehaviour
     private IEnumerator OnCollisionEnter2D(Collision2D Collision){//斧が薪に当たった時の処理
         if(Collision.gameObject.name=="wood")//斧が薪に当たっとき
         {
+           //SEを再生
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
         Vector3 woodPosition = Collision.transform.position;// 壊れた薪の位置に新しい薪の位置を決める。
         
         // オフセットを設定して新しい薪の位置を計算
