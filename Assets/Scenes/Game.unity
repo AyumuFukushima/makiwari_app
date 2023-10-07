@@ -775,7 +775,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026260614, y: 0}
+  m_Offset: {x: 0.026260614, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -786,7 +786,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2668061, y: 3.98}
+  m_Size: {x: 2.2668061, y: 7}
   m_EdgeRadius: 0
 --- !u!114 &161749958
 MonoBehaviour:
@@ -1749,7 +1749,7 @@ RectTransform:
   m_GameObject: {fileID: 1068652569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 20, z: 1}
+  m_LocalScale: {x: 6, y: 28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2122587137}
@@ -1757,7 +1757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: -50}
+  m_AnchoredPosition: {x: 450, y: -140}
   m_SizeDelta: {x: 83.7916, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068652571
@@ -1836,8 +1836,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1868,6 +1868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1068652575}
   flag: 0
+  flagReloadTime: 0
 --- !u!320 &1068652575
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -1893,7 +1894,6 @@ PlayableDirector:
     value: {fileID: 1670838983}
   - key: {fileID: -4600337087505535443, guid: a4a108e0fb72e374db6b647b3021506b, type: 2}
     value: {fileID: 34064527}
-
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1241535569
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 16
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2795,3 +2795,5 @@ SceneRoots:
   - {fileID: 1241535571}
   - {fileID: 414127770}
   - {fileID: 1557688609}
+  - {fileID: 161749955}
+  - {fileID: 546942724}
