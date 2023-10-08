@@ -8,7 +8,7 @@ public class Boar : MonoBehaviour
     private bool isRunAway = false;
     public static bool flag = false;
     public static float flagReloadTime;
-    public GameObject fx;
+    GameObject fx;
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
