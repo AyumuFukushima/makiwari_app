@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//アニメーション再生終了で自滅する（ネットコピペ）
 public class scrEffect : MonoBehaviour {
 	private float mLength;
 	private float mCur;
