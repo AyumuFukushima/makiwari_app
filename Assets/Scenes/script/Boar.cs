@@ -5,9 +5,10 @@ public class Boar : MonoBehaviour
 {
     private Rigidbody2D rbody2D;
     public float speed = 5f;   // 横に移動する速度
-    private bool isRunAway = false;
     public static bool flag = false;
     public static float flagReloadTime;
+    float animTime = 1.0f;//アニメーション再生時間
+    Animator boarAnim = null;//いのししのアニメーションの空
     GameObject fx;
     void Start()
     {
@@ -33,13 +34,16 @@ public class Boar : MonoBehaviour
             Destroy (this.gameObject);
         }
     }
-    public void OnClickBoar()
+    public void OnClickBoar()//いのししやられアニメーション再生
     {
-        if (!isRunAway)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            speed *= -1;
-            isRunAway = true;
-        }
+        boarAnim=this.gameObject.GetComponent<Animator>();//いのししアニメーション取得
+        StartCoroutine(BoarTap());
     }
+        IEnumerator BoarTap()
+    {
+        speed *= 0;
+        boarAnim.SetBool("boarTap", true);//やられたときのモーションを再生
+        yield return new WaitForSeconds(animTime);//一定時間やられたときのアニメーション再生
+        Destroy (this.gameObject);//いのしし削除
+    }   
 }
