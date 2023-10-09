@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     // 薪の数をUI Textに表示するメソッド
     private void UpdateWoodCountText()
     {
-        woodCountText.text = woodCount.ToString("D2");
+        woodCountText.text = woodCount.ToString("D3");
     }
 
      // 薪の数を増やす関数

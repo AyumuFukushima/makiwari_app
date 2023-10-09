@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class TimeupGameManager : MonoBehaviour
 {
+    public int ResultSceneCount = 15;//豪華リザルトのシーンに切り替わる薪の数
     int woodCount=0;//初期化
     public Text woodCountText;
     // Start is called before the first frame update
@@ -17,29 +18,29 @@ public class TimeupGameManager : MonoBehaviour
         UpdateWoodCountText();//薪の数を表示する
 
                 //薪の数によってリザルト画面の表示を変更する。
-        if(woodCount>=15){//薪を割った数が15以上なら豪華リザルトに遷移
+        if(woodCount>=ResultSceneCount){//薪を割った数がResultSceneCount以上なら豪華リザルトに遷移
             StartCoroutine(LoadRichResultScene());
         }
-         if(woodCount<=14){//薪を割った数が14以下なら通常リザルトに遷移
+         if(woodCount<ResultSceneCount){//薪を割った数がResultSceneCount以下なら通常リザルトに遷移
             StartCoroutine(LoadNormalResultScene());
         }
     }
         // 薪の数をUI Textに表示するメソッド
     private void UpdateWoodCountText()
     {
-        woodCountText.text = woodCount.ToString("D2");
+        woodCountText.text = woodCount.ToString("D3");
     }
         // 豪華リザルト画面に遷移する処理
     private IEnumerator LoadRichResultScene()
     {
-        yield return new WaitForSeconds(3.0f); // 10秒間待機
+        yield return new WaitForSeconds(3.0f); // 3秒間待機
         SceneManager.LoadScene("RichResult");
     }
 
     // 通常リザルト画面に遷移する処理
     private IEnumerator LoadNormalResultScene()
     {
-        yield return new WaitForSeconds(3.0f); // 10秒間待機
+        yield return new WaitForSeconds(3.0f); // 3秒間待機
         SceneManager.LoadScene("Result");
     }
 }

@@ -26,7 +26,7 @@ public class BoarGenerator : MonoBehaviour
 
         if (frame > generateFrame)
         {
-            Instantiate(boar, boarPosition, Quaternion.identity);
+            Instantiate(boar, boarPosition, Quaternion.identity);//イノシシ生成
             frame = 0;
         }
     }
