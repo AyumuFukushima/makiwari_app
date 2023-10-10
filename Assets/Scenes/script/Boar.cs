@@ -13,10 +13,14 @@ public class Boar : MonoBehaviour
     GameObject fx;
     float fxPositionX=1.0f;//爆発のX座標ずらす距離
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -42,11 +46,13 @@ public class Boar : MonoBehaviour
 
     public void OnClickBoar()//いのししやられアニメーション再生
     {
+        audioSource.PlayOneShot(sound1);//SE
         boarAnim=this.gameObject.GetComponent<Animator>();//いのししアニメーション取得
         StartCoroutine(BoarTap());
     }
     IEnumerator BoarTap()
     {
+        audioSource.PlayOneShot(sound1);//SE
         speed *= 0;
         boarAnim.SetBool("boarTap", true);//やられたときのモーションを再生
         yield return new WaitForSeconds(animTime);//一定時間やられたときのアニメーション再生

@@ -8,9 +8,19 @@ public class Ken : MonoBehaviour
     GameObject makiPrefab;
     Animator makiAnim = null;
     float respawnTime = 0.2f;//薪再生成のインターバル
+    public bool flag;
+    public float flagReloadTime;
+    private float flagAllowTime = 3f; // 次モーションが再生されるまでの時間
+
+    bool isBlinking = false; // 点滅中かどうかを管理するフラグ
+    Color originalColor; // キャラクターの元の色
 
     Rigidbody2D rbody2D;
     Animator kenAnim = null;
+
+    public AudioClip sound1;
+    public AudioClip sound2;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -21,7 +31,36 @@ public class Ken : MonoBehaviour
         makiPrefab = Instantiate(makiObj);
         makiAnim = makiPrefab.GetComponent<Animator>();
         makiAnim.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animator/makiAnimator");
+        originalColor = GetComponent<SpriteRenderer>().color; // キャラクターの元の色を保存
+
+        audioSource = GetComponent<AudioSource>();
     }
+
+  void Update()
+{
+    Debug.Log(flag);
+    if (!flag)
+    {
+        flag = Boar.flag; // 衝突flag呼び出し
+        flagReloadTime = Boar.flagReloadTime; // 衝突flagTime呼び出し
+    }
+    if (flag)
+    {
+        if (!audioSource.isPlaying) // オーディオが再生中でない場合のみ再生
+        {
+            audioSource.PlayOneShot(sound1);
+        }
+
+        StartCoroutine(BlinkCharacter());
+        float FlagPastTime = Time.time - flagReloadTime;
+        if (FlagPastTime > flagAllowTime)
+        {
+            flag = false;
+            Boar.flag = false;
+            audioSource.PlayOneShot(sound2);
+        }
+    }
+}
 
     public void Makiwari()
     {
@@ -30,9 +69,12 @@ public class Ken : MonoBehaviour
 
     IEnumerator Tap()
     {
+     if (flag==false) //
+     {
         kenAnim.SetBool("tap", true);
         yield return new WaitForSeconds(respawnTime);//薪の再生成まで操作受け付けない
         kenAnim.SetBool("tap", false);
+     }
     }
 
      // プレハブから薪を生成する関数
@@ -41,6 +83,7 @@ public class Ken : MonoBehaviour
         makiPrefab = Instantiate(makiObj);
         makiAnim = makiPrefab.GetComponent<Animator>();
         makiAnim.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animator/makiAnimator");
+
         makiAnim.SetBool("break", false);
     }
 
@@ -63,4 +106,22 @@ public class Ken : MonoBehaviour
         yield return new WaitForSeconds(respawnTime);//respawnTIme待つ
         SpawnWood();//生成
     }
+    IEnumerator BlinkCharacter()
+{
+    isBlinking = true; // 点滅中フラグをセット
+    SpriteRenderer characterRenderer = GetComponent<SpriteRenderer>();
+    float blinkInterval = 0.2f; // 点滅の間隔
+
+    while (flag)
+    {
+        characterRenderer.color = new Color(1f, 1f, 1f, 0f); // キャラクターを透明にする
+        yield return new WaitForSeconds(blinkInterval);
+        characterRenderer.color = originalColor; // 元の色に戻す
+        yield return new WaitForSeconds(blinkInterval);
+    }
+
+    isBlinking = false; // 点滅中フラグをクリア
+    characterRenderer.color = originalColor; // 最終的に元の色に戻す
+}
+    
 }
