@@ -17,25 +17,14 @@ public class TimeupGameManager : MonoBehaviour
         woodCount = PlayerPrefs.GetInt("WoodCount");//ゲーム画面から薪の数を取得。
         UpdateWoodCountText();//薪の数を表示する
 
-                //薪の数によってリザルト画面の表示を変更する。
-        if(woodCount>=ResultSceneCount){//薪を割った数がResultSceneCount以上なら豪華リザルトに遷移
-            StartCoroutine(LoadRichResultScene());
-        }
-         if(woodCount<ResultSceneCount){//薪を割った数がResultSceneCount以下なら通常リザルトに遷移
-            StartCoroutine(LoadNormalResultScene());
-        }
+            StartCoroutine(LoadNormalResultScene());//リザルト画面に切り替え
     }
         // 薪の数をUI Textに表示するメソッド
     private void UpdateWoodCountText()
     {
         woodCountText.text = woodCount.ToString("D3");
     }
-        // 豪華リザルト画面に遷移する処理
-    private IEnumerator LoadRichResultScene()
-    {
-        yield return new WaitForSeconds(3.0f); // 3秒間待機
-        SceneManager.LoadScene("RichResult");
-    }
+
 
     // 通常リザルト画面に遷移する処理
     private IEnumerator LoadNormalResultScene()

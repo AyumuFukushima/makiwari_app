@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4907255581012700429}
   - component: {fileID: -3813040028947423426}
   - component: {fileID: 7581817691914320643}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: hebi
   m_TagString: enemy
   m_Icon: {fileID: 0}
