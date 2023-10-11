@@ -73,9 +73,9 @@ public class GameManager : MonoBehaviour
         if(seconds<=5){//5秒以下ならカウントの色を赤色、アウトラインの色を白に変更する。
             timeText.color = Color.red;
             outline.effectColor = Color.white;
-            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timeText.text = string.Format("のこり"+seconds);
         }else{
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timeText.text = string.Format("のこり"+seconds);
         }
     }
     

@@ -806,8 +806,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "good\uFF01"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5dbe3fcb491c744fb102d126787c200, type: 2}
+  m_sharedMaterial: {fileID: -1044962913152350116, guid: d5dbe3fcb491c744fb102d126787c200, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1351,7 +1351,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.23, y: 0.89032364}
+  m_Size: {x: 14.23, y: 0.8}
   m_EdgeRadius: 0
 --- !u!212 &1135595165
 SpriteRenderer:
