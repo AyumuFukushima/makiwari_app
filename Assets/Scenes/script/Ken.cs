@@ -5,8 +5,11 @@ using UnityEngine;
 public class Ken : MonoBehaviour
 {
     GameObject makiObj;
+    GameObject makiBackObj;
     GameObject makiPrefab;
+    GameObject makiBackPrefab;
     Animator makiAnim = null;
+    Animator makiBackAnim = null;
     float respawnTime = 0.2f;//薪再生成のインターバル
     public bool flag;
     public float flagReloadTime;
@@ -28,9 +31,14 @@ public class Ken : MonoBehaviour
         kenAnim = GetComponent<Animator>();
 
         makiObj = (GameObject)Resources.Load("Prefabs/maki_standing");
+        makiBackObj = (GameObject)Resources.Load("Prefabs/backMaki");
         makiPrefab = Instantiate(makiObj);
+        makiBackPrefab = Instantiate(makiBackObj);
         makiAnim = makiPrefab.GetComponent<Animator>();
+        makiBackAnim = makiBackPrefab.GetComponent<Animator>();
         makiAnim.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animator/makiAnimator");
+        makiBackAnim.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animator/BackmakiAnimator");
+
         originalColor = GetComponent<SpriteRenderer>().color; // キャラクターの元の色を保存
 
         audioSource = GetComponent<AudioSource>();
@@ -69,7 +77,7 @@ public class Ken : MonoBehaviour
 
     IEnumerator Tap()
     {
-     if (flag==false) //
+     if (flag==false)
      {
         kenAnim.SetBool("tap", true);
         yield return new WaitForSeconds(respawnTime);//薪の再生成まで操作受け付けない
@@ -81,15 +89,20 @@ public class Ken : MonoBehaviour
     void SpawnWood()
     {
         makiPrefab = Instantiate(makiObj);
+        makiBackPrefab = Instantiate(makiBackObj);
         makiAnim = makiPrefab.GetComponent<Animator>();
+        makiBackAnim = makiBackPrefab.GetComponent<Animator>();
         makiAnim.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animator/makiAnimator");
+        makiBackAnim.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animator/BackmakiAnimator");
 
         makiAnim.SetBool("break", false);
+        makiBackAnim.SetBool("break", false);
     }
 
     public IEnumerator MakiBreak()//斧が薪に当たった時の処理
     {
         makiAnim.SetBool("break", true);
+        makiBackAnim.SetBool("break", true);
 
         //SEを再生
         AudioSource audioSource = GetComponent<AudioSource>();

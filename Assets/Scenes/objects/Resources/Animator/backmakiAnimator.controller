@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: tap
+    m_ConditionEvent: break
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4662273799236600863}
@@ -87,7 +87,7 @@ AnimatorController:
   m_Name: backmakiAnimator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: tap
+  - m_Name: break
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
