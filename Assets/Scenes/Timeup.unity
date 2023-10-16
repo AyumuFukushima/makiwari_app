@@ -882,7 +882,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: timeStop!!
+  m_Text: Time UP!!
 --- !u!222 &878831574
 CanvasRenderer:
   m_ObjectHideFlags: 0
