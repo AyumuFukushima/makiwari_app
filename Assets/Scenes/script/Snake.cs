@@ -13,10 +13,14 @@ public class Snake : MonoBehaviour
     GameObject fx;
     float fxPositionX=1.0f;//爆発のX座標ずらす距離
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -42,6 +46,7 @@ public class Snake : MonoBehaviour
 
     public void OnClickSnake()//ヘビをタッチしたとき
     {
+        audioSource.PlayOneShot(sound1);//SE
         snakeAnim=this.gameObject.GetComponent<Animator>();//ヘビアニメーション取得
         StartCoroutine(SnakeTap());
     }

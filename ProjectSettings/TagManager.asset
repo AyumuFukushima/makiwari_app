@@ -46,3 +46,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: KEN damage
+    uniqueID: 2531964917
+    locked: 0
