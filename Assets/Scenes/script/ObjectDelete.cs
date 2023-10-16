@@ -7,7 +7,7 @@ public class ObjectDelete : MonoBehaviour
 {
     IEnumerator GameObjectDestroy()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         GameObject.Destroy (gameObject);
     }
 
