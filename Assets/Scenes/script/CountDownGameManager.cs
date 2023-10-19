@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class CountDownGameManager : MonoBehaviour
 {
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     [SerializeField]
 	private Text _textCountdown;
     // Start is called before the first frame update
@@ -13,12 +16,14 @@ public class CountDownGameManager : MonoBehaviour
     {
         _textCountdown.text = "";
         StartCoroutine(CountdownCoroutine());
+        audioSource = GetComponent<AudioSource>();
 
     }
     IEnumerator CountdownCoroutine()
 	{
 		_textCountdown.text = "3";
 		yield return new WaitForSeconds(1.0f);
+        audioSource.PlayOneShot(sound1);//SE
  
 		_textCountdown.text = "2";
 		yield return new WaitForSeconds(1.0f);

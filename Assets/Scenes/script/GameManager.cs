@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     private int woodCount = 0; // 薪の数を管理する変数
     public Text woodCountText; // UI Textコンポーネントを格納する変数
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
+     private bool hasPlayedSound = false; // サウンドを一度だけ再生するためのフラグ
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,14 @@ public class GameManager : MonoBehaviour
         outline = GameObject.Find("TimeText").GetComponent<Outline>();
         UpdateWoodCountText(); // 薪の数を表示する
         UpdateTimeText(); // 時間を表示する
+        audioSource = GetComponent<AudioSource>();
+        StartCoroutine(PlaySoundAfterDelay());
+    }
+
+IEnumerator PlaySoundAfterDelay()
+    {
+        yield return new WaitForSeconds(25f); // 25秒待つ
+        audioSource.PlayOneShot(sound1);//SE
     }
 
     // Update is called once per frame

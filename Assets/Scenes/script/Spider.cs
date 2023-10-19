@@ -12,11 +12,14 @@ public class Spider : MonoBehaviour
     Animator spiderAnim = null;//くものアニメーションの空
     GameObject fx;
     float fxPositionY=1.0f;//爆発のY座標ずらす距離
+    public AudioClip sound1;
+    AudioSource audioSource;
 
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -42,6 +45,7 @@ public class Spider : MonoBehaviour
 
     public void OnClickspider()//くもをタッチしたとき
     {
+        audioSource.PlayOneShot(sound1);//SE
         spiderAnim=this.gameObject.GetComponent<Animator>();//くもアニメーション取得
         StartCoroutine(spiderTap());
     }
