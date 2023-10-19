@@ -17,16 +17,17 @@ public class SnakeGenerator : MonoBehaviour
         snake = (GameObject)Resources.Load("Prefabs/hebi");
         snakePosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.24f));
         snakePosition.z = 0;
+        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
     }
 
     void Update()
     {
         ++frame;
-        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
 
         if (frame > generateFrame)
         {
             Instantiate(snake, snakePosition, Quaternion.identity);//ヘビ生成
+            generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
             frame = 0;
         }
     }

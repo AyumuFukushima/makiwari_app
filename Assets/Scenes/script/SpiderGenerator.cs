@@ -17,16 +17,17 @@ public class SpiderGenerator : MonoBehaviour
         spider = (GameObject)Resources.Load("Prefabs/spider");
         spiderPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.75f, 1.3f));
         spiderPosition.z = 0;
+        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
     }
 
     void Update()
     {
         ++frame;
-        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
 
         if (frame > generateFrame)
         {
             Instantiate(spider, spiderPosition, Quaternion.identity);//ヘビ生成
+            generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
             frame = 0;
         }
     }

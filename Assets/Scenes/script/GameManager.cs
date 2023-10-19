@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(currentTime / 60f);
         int seconds = Mathf.FloorToInt(currentTime % 60f);
+        if(minutes>0){//分を秒に変換する。
+            seconds=seconds+minutes*60;
+        }
         if(seconds<=5){//5秒以下ならカウントの色を赤色、アウトラインの色を白に変更する。
             timeText.color = Color.red;
             outline.effectColor = Color.white;

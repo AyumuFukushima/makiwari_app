@@ -17,16 +17,16 @@ public class BoarGenerator : MonoBehaviour
         boar = (GameObject)Resources.Load("Prefabs/eto_remake_inoshishi");
         boarPosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.25f));
         boarPosition.z = 0;
+        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
     }
 
     void Update()
     {
         ++frame;
-        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
-
         if (frame > generateFrame)
         {
             Instantiate(boar, boarPosition, Quaternion.identity);//イノシシ生成
+            generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
             frame = 0;
         }
     }
