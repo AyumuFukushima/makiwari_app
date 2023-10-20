@@ -15,6 +15,9 @@ MonoBehaviour:
   boarMinGenerateFrame: 50
   boarMaxGenerateFrame: 200
   boarSpeed: 6
+  superBoarMinGenerateFrame: 100
+  superBoarMaxGenerateFrame: 1000
+  superBoarSpeed: 15
   snakeMinGenerateFrame: 50
   snakeMaxGenerateFrame: 150
   snakeSpeed: 3

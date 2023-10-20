@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 383037732}
   - component: {fileID: 383037733}
   - component: {fileID: 383037734}
+  - component: {fileID: 383037735}
   m_Layer: 0
   m_Name: EnemyGenerator
   m_TagString: Untagged
@@ -386,6 +387,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93b78c856e34fbf4f8ed810ca5c17953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameter: {fileID: 11400000, guid: 53267f476f2e8c644a697f9f22b3b722, type: 2}
+--- !u!114 &383037735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383037729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0fcc102d812624bbb81bf9a781cdb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parameter: {fileID: 11400000, guid: 53267f476f2e8c644a697f9f22b3b722, type: 2}

@@ -9,6 +9,12 @@ public class ParameterTable : ScriptableObject
     public float boarMaxGenerateFrame;
     public float boarSpeed;
 
+    //スーパーいのししのパラメータ
+    [Header("boar Settings")]  
+    public float superBoarMinGenerateFrame;
+    public float superBoarMaxGenerateFrame;
+    public float superBoarSpeed;
+
     //へびのパラメータ
     [Header("snake Settings")] 
     public float snakeMinGenerateFrame;
