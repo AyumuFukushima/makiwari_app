@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SnakeGenerator : MonoBehaviour
 {
-    public float minGenerateFrame;//最小出現間隔
-    public float maxGenerateFrame;//最大出現間隔
+    public ParameterTable parameter;
+    private float minGenerateFrame;//最小出現間隔
+    private float maxGenerateFrame;//最大出現間隔
 
     GameObject snake;
     Vector3 snakePosition;
@@ -14,6 +15,8 @@ public class SnakeGenerator : MonoBehaviour
 
     void Start()
     {
+        maxGenerateFrame = parameter.snakeMaxGenerateFrame;//最大出現間隔
+        minGenerateFrame = parameter.snakeMinGenerateFrame;//最小出現間隔
         snake = (GameObject)Resources.Load("Prefabs/hebi");
         snakePosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.24f));
         snakePosition.z = 0;

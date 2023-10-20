@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
+    public ParameterTable parameter;
+    
     private Rigidbody2D rbody2D;
-    public float speed = 3f;   // 横に移動する速度
+    private float speed;// へびの速度
     public static bool flag = false;
     public static float flagReloadTime;
     float animTime = 1.5f;//アニメーション再生時間
@@ -18,6 +20,7 @@ public class Snake : MonoBehaviour
 
     void Start()
     {
+        speed = parameter.snakeSpeed;// へびの速度
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
         audioSource = GetComponent<AudioSource>();

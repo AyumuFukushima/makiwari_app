@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public float timeLimitInSeconds = 60f; // 制限時間（秒）
+    public ParameterTable parameter;
+    private float timeLimitInSeconds; // 制限時間（秒）
     private float currentTime = 0f;
     private bool isTimeUp = false;
     public Text timeText; // UI Textコンポーネントを格納する変数
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeLimitInSeconds = parameter.time;// 制限時間
         Application.targetFrameRate = 30;
          //制限時間を設定したら、初期値も同じにする
         currentTime = timeLimitInSeconds;

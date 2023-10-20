@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Spider : MonoBehaviour
 {
+    public ParameterTable parameter;
+
     private Rigidbody2D rbody2D;
-    public float speed = 1.0f;   // 縦に移動する速度
+    private float speed;// くもの速度
     public static bool flag = false;
     public static float flagReloadTime;
     float animTime = 1.5f;//アニメーション再生時間
@@ -15,6 +17,7 @@ public class Spider : MonoBehaviour
 
     void Start()
     {
+        speed = parameter.spiderSpeed;// くも 速度
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
     }

@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc71c591499fe14c9c66369784dfb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  parameter: {fileID: 11400000, guid: 53267f476f2e8c644a697f9f22b3b722, type: 2}
   sound1: {fileID: 8300000, guid: 7ec9a9671e375144ea45f74b14780899, type: 3}
 --- !u!114 &4907255581012700429
 MonoBehaviour:

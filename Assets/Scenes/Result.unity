@@ -523,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5f266ba345de9489fdaac59c0af4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parameter: {fileID: 11400000, guid: 53267f476f2e8c644a697f9f22b3b722, type: 2}
   woodCountText: {fileID: 0}
   gameObjects:
   - {fileID: 1447325227}

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Boar : MonoBehaviour
 {
+    
+    public ParameterTable parameter;
+
+    private float speed;// いのしし速度
     private Rigidbody2D rbody2D;
-    public float speed = 5f;   // 横に移動する速度
     public static bool flag = false;
     public static float flagReloadTime;
     float animTime = 1.0f;//アニメーション再生時間
@@ -18,6 +21,7 @@ public class Boar : MonoBehaviour
 
     void Start()
     {
+        speed = parameter.boarSpeed;// いのしし速度
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
         audioSource = GetComponent<AudioSource>();
