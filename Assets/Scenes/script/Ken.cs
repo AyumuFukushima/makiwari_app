@@ -19,11 +19,14 @@ public class Ken : MonoBehaviour
     private float flagAllowTime1 = 3f; // 次モーションが再生されるまでの時間
     //---------------------------------------
     //ここにヘビの制御の宣言書く予定
+    public bool flag2;
+    public float flagReloadTime2;
+    private float flagAllowTime2 = 3f; // 次モーションが再生されるまでの時間
 
+    public bool flag3;
+    public float flagReloadTime3;
+    private float flagAllowTime3 = 3f; // 次モーションが再生されるまでの時間
 
-
-    
-    //---------------------------------------
 
     bool isBlinking = false; // 点滅中かどうかを管理するフラグ
     Color originalColor; // キャラクターの元の色
@@ -83,6 +86,53 @@ public class Ken : MonoBehaviour
             spriteRenderer.sortingOrder = 2;//ケンさん再表示
         }
     }
+    if (!flag2)
+    {
+        flag2 = Snake.flag; // 衝突flag呼び出し
+        flagReloadTime2 = Snake.flagReloadTime; // 衝突flagTime呼び出し
+    }
+    if (flag2)
+    {
+        spriteRenderer.sortingOrder = -1;//ケンさん待機の絵のレイヤーを後ろにする
+        if (!audioSource.isPlaying) // オーディオが再生中でない場合のみ再生
+        {
+            audioSource.PlayOneShot(sound1);//ダメージ音再生
+        }
+
+        StartCoroutine(BlinkCharacter());
+        float FlagPastTime = Time.time - flagReloadTime2;
+        if (FlagPastTime > flagAllowTime2)
+        {
+            flag2 = false;
+            Snake.flag = false;
+            audioSource.PlayOneShot(sound2);//復活音再生
+            spriteRenderer.sortingOrder = 2;//ケンさん再表示
+        }
+    }
+
+    if (!flag3)
+    {
+        flag3 = Spider.flag; // 衝突flag呼び出し
+        flagReloadTime3 = Spider.flagReloadTime; // 衝突flagTime呼び出し
+    }
+    if (flag3)
+    {
+        spriteRenderer.sortingOrder = -1;//ケンさん待機の絵のレイヤーを後ろにする
+        if (!audioSource.isPlaying) // オーディオが再生中でない場合のみ再生
+        {
+            audioSource.PlayOneShot(sound1);//ダメージ音再生
+        }
+
+        StartCoroutine(BlinkCharacter());
+        float FlagPastTime = Time.time - flagReloadTime3;
+        if (FlagPastTime > flagAllowTime3)
+        {
+            flag3 = false;
+            Spider.flag = false;
+            audioSource.PlayOneShot(sound2);//復活音再生
+            spriteRenderer.sortingOrder = 2;//ケンさん再表示
+        }
+    }
 }
 
     public void Makiwari()
@@ -92,7 +142,7 @@ public class Ken : MonoBehaviour
 
     IEnumerator Tap()
     {
-     if (flag1==false) //
+     if (flag1==false && flag2==false && flag3==false) //
      {
         kenAnim.SetBool("tap", true);
         yield return new WaitForSeconds(respawnTime);//薪の再生成まで操作受け付けない
