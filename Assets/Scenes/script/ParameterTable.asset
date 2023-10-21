@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7e402373d7a4e4498a40b502484f0d, type: 3}
   m_Name: ParameterTable
   m_EditorClassIdentifier: 
-  boarMinGenerateFrame: 50
-  boarMaxGenerateFrame: 200
+  boarMinGenerateFrame: 80
+  boarMaxGenerateFrame: 250
   boarSpeed: 6
   superBoarMinGenerateFrame: 100
   superBoarMaxGenerateFrame: 1000
   superBoarSpeed: 15
-  snakeMinGenerateFrame: 50
-  snakeMaxGenerateFrame: 150
+  snakeMinGenerateFrame: 80
+  snakeMaxGenerateFrame: 200
   snakeSpeed: 3
-  spiderMinGenerateFrame: 60
+  spiderMinGenerateFrame: 80
   spiderMaxGenerateFrame: 250
   spiderSpeed: 2
   time: 90
@@ -29,3 +29,13 @@ MonoBehaviour:
   GoodResult: 90
   NormalResult: 50
   BadResult: 30
+  tempoUpTime: 20
+  boarMinPop: 20
+  boarTempoUpSpeed: 10
+  boarMaxPop: 50
+  snakeMinPop: 30
+  snakeMaxPop: 100
+  snakeTempoUpSpeed: 6
+  spiderMinPop: 40
+  spiderMaxPop: 100
+  spiderTempoUpSpeed: 3

@@ -5,8 +5,10 @@ using UnityEngine;
 public class SpiderGenerator : MonoBehaviour
 {
     public ParameterTable parameter;
-    private float minGenerateFrame;//最小出現間隔
-    private float maxGenerateFrame;//最大出現間隔
+    [HideInInspector]
+    public float minGenerateFrame;//最小出現間隔
+    [HideInInspector]
+    public float maxGenerateFrame;//最大出現間隔
 
     GameObject spider;
     Vector3 spiderPosition;

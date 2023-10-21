@@ -10,7 +10,7 @@ public class ParameterTable : ScriptableObject
     public float boarSpeed;
 
     //スーパーいのししのパラメータ
-    [Header("boar Settings")]  
+    [Header("super boar Settings")]  
     public float superBoarMinGenerateFrame;
     public float superBoarMaxGenerateFrame;
     public float superBoarSpeed;
@@ -35,4 +35,17 @@ public class ParameterTable : ScriptableObject
     public int GoodResult;
     public int NormalResult;
     public int BadResult;  
+
+    [Header("後半の敵のポップ時間設定")] 
+    public float tempoUpTime;
+    public float boarMinPop;
+    public int boarTempoUpSpeed;
+    public float boarMaxPop;
+    public float snakeMinPop;
+    public float snakeMaxPop;
+    public int snakeTempoUpSpeed;
+    public float spiderMinPop;
+    public float spiderMaxPop;
+    public int spiderTempoUpSpeed;
+
 } // class ParameterTable

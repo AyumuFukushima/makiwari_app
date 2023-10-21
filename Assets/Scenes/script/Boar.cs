@@ -8,6 +8,8 @@ public class Boar : MonoBehaviour
     public ParameterTable parameter;
 
     private float speed;// いのしし速度
+    private float tempoUpTime;//敵が強くなる時間
+    private int time;
     private Rigidbody2D rbody2D;
     public static bool flag = false;
     public static float flagReloadTime;
@@ -15,18 +17,36 @@ public class Boar : MonoBehaviour
     Animator boarAnim = null;//いのししのアニメーションの空
     GameObject fx;
     float fxPositionX=1.0f;//爆発のX座標ずらす距離
+    private GameManager gameManager;
 
     public AudioClip sound1;
     AudioSource audioSource;
 
+    private void Awake()
+    {
+        tempoUpTime = parameter.tempoUpTime;// 敵が強くなる時間
+        gameManager = FindObjectOfType<GameManager>(); // GameManager クラスのインスタンスを取得
+        if (gameManager != null)
+        {
+            time = gameManager.Seconds; // seconds の値を取得
+            // ここで secondsValue を使用できる
+        }
+        if(time<tempoUpTime)
+        {//時間がtempoUpTime以下なら実行
+            speed = parameter.boarTempoUpSpeed;// いのしし速度
+        }else{
+            speed = parameter.boarSpeed;// いのしし速度
+        }
+    }
+
     void Start()
     {
-        speed = parameter.boarSpeed;// いのしし速度
+
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
         audioSource = GetComponent<AudioSource>();
     }
-
+    
     void FixedUpdate()
     {
         rbody2D.velocity = new Vector2(speed, rbody2D.velocity.y);

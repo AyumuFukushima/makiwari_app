@@ -8,19 +8,37 @@ public class Snake : MonoBehaviour
     
     private Rigidbody2D rbody2D;
     private float speed;// へびの速度
+    private float tempoUpTime;//敵が強くなる時間
+    private int time;
     public static bool flag = false;
     public static float flagReloadTime;
     float animTime = 1.5f;//アニメーション再生時間
     Animator snakeAnim = null;//いのししのアニメーションの空
     GameObject fx;
     float fxPositionX=1.0f;//爆発のX座標ずらす距離
+    private GameManager gameManager;
 
     public AudioClip sound1;
     AudioSource audioSource;
 
+    private void Awake()
+    {
+        tempoUpTime = parameter.tempoUpTime;// 敵が強くなる時間
+        gameManager = FindObjectOfType<GameManager>(); // GameManager クラスのインスタンスを取得
+        if (gameManager != null)
+        {
+            time = gameManager.Seconds; // seconds の値を取得
+            // ここで secondsValue を使用できる
+        }
+        if(time<tempoUpTime)
+        {//時間がtempoUpTime以下なら実行
+            speed = parameter.snakeTempoUpSpeed;// へび速度
+        }else{
+                    speed = parameter.snakeSpeed;// へびの速度
+        }
+    }
     void Start()
     {
-        speed = parameter.snakeSpeed;// へびの速度
         rbody2D = GetComponent<Rigidbody2D>();
         fx = (GameObject)Resources.Load("Prefabs/Explode");
         audioSource = GetComponent<AudioSource>();
