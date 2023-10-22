@@ -1123,6 +1123,8 @@ MonoBehaviour:
   flagReloadTime2: 0
   flag3: 0
   flagReloadTime3: 0
+  flag4: 0
+  flagReloadTime4: 0
 --- !u!1 &1061240766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1302,9 @@ MonoBehaviour:
   flagReloadTime2: 0
   flag3: 0
   flagReloadTime3: 0
-  sound1: {fileID: 8300000, guid: c8f58ba22375d7040b87b03090a9fee2, type: 3}
+  flag4: 0
+  flagReloadTime4: 0
+  sound1: {fileID: 8300000, guid: e4dbf4025adcf7b48a804b7fb37a968e, type: 3}
   sound2: {fileID: 8300000, guid: 46141cc987eacc14ba12aeb3a9a2dbfc, type: 3}
 --- !u!95 &1229390080
 Animator:
@@ -1627,15 +1631,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8f58ba22375d7040b87b03090a9fee2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4dbf4025adcf7b48a804b7fb37a968e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.11
-  m_Pitch: 1
+  m_Volume: 1
+  m_Pitch: 1.37
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 155
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
