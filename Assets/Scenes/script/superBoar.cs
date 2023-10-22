@@ -15,6 +15,7 @@ public class superBoar : MonoBehaviour
     Animator boarAnim = null;//いのししのアニメーションの空
     GameObject fx;
     float fxPositionX=1.0f;//爆発のX座標ずらす距離
+    private GameManager gameManager;
 
     public AudioClip sound1;
     AudioSource audioSource;

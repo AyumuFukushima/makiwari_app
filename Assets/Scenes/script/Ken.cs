@@ -27,6 +27,9 @@ public class Ken : MonoBehaviour
     public float flagReloadTime3;
     private float flagAllowTime3 = 3f; // 次モーションが再生されるまでの時間
 
+    public bool flag4;
+    public float flagReloadTime4;
+    private float flagAllowTime4 = 3f; // 次モーションが再生されるまでの時間
 
     bool isBlinking = false; // 点滅中かどうかを管理するフラグ
     Color originalColor; // キャラクターの元の色
@@ -133,6 +136,30 @@ public class Ken : MonoBehaviour
             spriteRenderer.sortingOrder = 2;//ケンさん再表示
         }
     }
+    if (!flag4)
+    {
+        flag4 = superBoar.flag; // 衝突flag呼び出し
+        flagReloadTime4 = superBoar.flagReloadTime; // 衝突flagTime呼び出し
+    }
+
+    if (flag4)
+    {
+        spriteRenderer.sortingOrder = -1;//ケンさん待機の絵のレイヤーを後ろにする
+        if (!audioSource.isPlaying) // オーディオが再生中でない場合のみ再生
+        {
+            audioSource.PlayOneShot(sound1);//ダメージ音再生
+        }
+
+        StartCoroutine(BlinkCharacter());
+        float FlagPastTime = Time.time - flagReloadTime4;
+        if (FlagPastTime > flagAllowTime4)
+        {
+            flag4 = false;
+            superBoar.flag = false;
+            audioSource.PlayOneShot(sound2);//復活音再生
+            spriteRenderer.sortingOrder = 2;//ケンさん再表示
+        }
+    }
 }
 
     public void Makiwari()
@@ -142,7 +169,7 @@ public class Ken : MonoBehaviour
 
     IEnumerator Tap()
     {
-     if (flag1==false && flag2==false && flag3==false) //
+     if (flag1==false && flag2==false && flag3==false && flag4==false) //
      {
         kenAnim.SetBool("tap", true);
         yield return new WaitForSeconds(respawnTime);//薪の再生成まで操作受け付けない

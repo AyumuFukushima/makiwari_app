@@ -24,11 +24,11 @@ MonoBehaviour:
   spiderMinGenerateFrame: 80
   spiderMaxGenerateFrame: 250
   spiderSpeed: 2
-  time: 90
-  veryGoodResult: 150
-  GoodResult: 90
-  NormalResult: 50
-  BadResult: 30
+  time: 91
+  veryGoodResult: 190
+  GoodResult: 165
+  NormalResult: 120
+  BadResult: 80
   tempoUpTime: 20
   boarMinPop: 20
   boarTempoUpSpeed: 10
