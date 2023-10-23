@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SpiderGenerator : MonoBehaviour
 {
+    public ParameterTable parameter;
+    [HideInInspector]
     public float minGenerateFrame;//最小出現間隔
+    [HideInInspector]
     public float maxGenerateFrame;//最大出現間隔
 
     GameObject spider;
@@ -14,19 +17,22 @@ public class SpiderGenerator : MonoBehaviour
 
     void Start()
     {
+        maxGenerateFrame = parameter.spiderMaxGenerateFrame;//最大出現間隔
+        minGenerateFrame = parameter.spiderMinGenerateFrame;//最小出現間隔
         spider = (GameObject)Resources.Load("Prefabs/spider");
         spiderPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.75f, 1.3f));
         spiderPosition.z = 0;
+        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
     }
 
     void Update()
     {
         ++frame;
-        generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
 
         if (frame > generateFrame)
         {
             Instantiate(spider, spiderPosition, Quaternion.identity);//ヘビ生成
+            generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
             frame = 0;
         }
     }

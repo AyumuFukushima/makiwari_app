@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc71c591499fe14c9c66369784dfb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  parameter: {fileID: 11400000, guid: 53267f476f2e8c644a697f9f22b3b722, type: 2}
   sound1: {fileID: 8300000, guid: 7ec9a9671e375144ea45f74b14780899, type: 3}
 --- !u!114 &4907255581012700429
 MonoBehaviour:
@@ -206,9 +206,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 204ca8d3e689e744cb4a15dc40a9aa4c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c755c07e362d8a0499e011b283da9962, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.067
+  m_Volume: 0.033
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -325,13 +325,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ec9a9671e375144ea45f74b14780899, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.062
+  m_Volume: 0.349
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 171
+  Priority: 130
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

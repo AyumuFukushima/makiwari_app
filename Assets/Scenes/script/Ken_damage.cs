@@ -16,6 +16,9 @@ public class Ken_damage : MonoBehaviour
     public float flagReloadTime3;
     private float flagAllowTime3 = 3f; // 次モーションが再生されるまでの時間
     
+    public bool flag4;
+    public float flagReloadTime4;
+    private float flagAllowTime4 = 3f; // 次モーションが再生されるまでの時間
     private SpriteRenderer spriteRenderer;
 
     bool isBlinking = false; // 点滅中かどうかを管理するフラグ
@@ -89,6 +92,25 @@ public class Ken_damage : MonoBehaviour
             spriteRenderer.sortingOrder = -1;//ダメージケンさん再表示
         }
      } 
+      if (!flag4)
+     {
+        flag4 = superBoar.flag; // 衝突flag呼び出し
+        flagReloadTime4 = superBoar.flagReloadTime; // 衝突flagTime呼び出し
+     }
+        
+       if (flag4)
+     {
+        
+        StartCoroutine(BlinkCharacter());
+        spriteRenderer.sortingOrder = 2;//ダメージケンさん表示
+        float FlagPastTime = Time.time - flagReloadTime4;
+        if (FlagPastTime > flagAllowTime3)
+        {
+            flag4 = false;
+            superBoar.flag = false;
+            spriteRenderer.sortingOrder = -1;//ダメージケンさん再表示
+        }
+      } 
     }
     IEnumerator BlinkCharacter()
  {
@@ -96,7 +118,7 @@ public class Ken_damage : MonoBehaviour
     SpriteRenderer characterRenderer = GetComponent<SpriteRenderer>();
     float blinkInterval = 0.2f; // 点滅の間隔
 
-    while (flag1 || flag2 || flag3)
+    while (flag1 || flag2 || flag3 || flag4)
     {
         characterRenderer.color = new Color(1f, 1f, 1f, 0f); // キャラクターを透明にする
         yield return new WaitForSeconds(blinkInterval);

@@ -523,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5f266ba345de9489fdaac59c0af4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parameter: {fileID: 11400000, guid: 53267f476f2e8c644a697f9f22b3b722, type: 2}
   woodCountText: {fileID: 0}
   gameObjects:
   - {fileID: 1447325227}
@@ -1803,7 +1804,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 1b3dc88b6e040ae4cb3498196eaf8de1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f55b0d397527f8d489de81799107dbbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
