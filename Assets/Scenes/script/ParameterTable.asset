@@ -20,10 +20,10 @@ MonoBehaviour:
   superBoarSpeed: 15
   snakeMinGenerateFrame: 80
   snakeMaxGenerateFrame: 200
-  snakeSpeed: 3
+  snakeSpeed: 10
   spiderMinGenerateFrame: 80
   spiderMaxGenerateFrame: 250
-  spiderSpeed: 2
+  spiderSpeed: 4
   time: 91
   veryGoodResult: 190
   GoodResult: 165
@@ -38,4 +38,4 @@ MonoBehaviour:
   snakeTempoUpSpeed: 6
   spiderMinPop: 40
   spiderMaxPop: 100
-  spiderTempoUpSpeed: 3
+  spiderTempoUpSpeed: 6
