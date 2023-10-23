@@ -22,7 +22,7 @@ public class BoarGenerator : MonoBehaviour
         maxGenerateFrame = parameter.boarMaxGenerateFrame;//最大出現間隔
         minGenerateFrame = parameter.boarMinGenerateFrame;//最小出現間隔
         boar = (GameObject)Resources.Load("Prefabs/eto_remake_inoshishi");
-        boarPosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.25f));
+        boarPosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.28f));
         boarPosition.z = 0;
         generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
     }
