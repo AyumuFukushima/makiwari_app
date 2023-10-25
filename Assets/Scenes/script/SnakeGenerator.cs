@@ -20,7 +20,7 @@ public class SnakeGenerator : MonoBehaviour
         maxGenerateFrame = parameter.snakeMaxGenerateFrame;//最大出現間隔
         minGenerateFrame = parameter.snakeMinGenerateFrame;//最小出現間隔
         snake = (GameObject)Resources.Load("Prefabs/hebi");
-        snakePosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.24f));
+        snakePosition = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.14f));
         snakePosition.z = 0;
         generateFrame = (int)Random.Range(minGenerateFrame, maxGenerateFrame);
     }
