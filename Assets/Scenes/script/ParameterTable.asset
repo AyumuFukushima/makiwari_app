@@ -17,25 +17,25 @@ MonoBehaviour:
   boarSpeed: 6
   superBoarMinGenerateFrame: 100
   superBoarMaxGenerateFrame: 1000
-  superBoarSpeed: 15
+  superBoarSpeed: 12
   snakeMinGenerateFrame: 80
   snakeMaxGenerateFrame: 200
-  snakeSpeed: 10
+  snakeSpeed: 7
   spiderMinGenerateFrame: 80
   spiderMaxGenerateFrame: 250
-  spiderSpeed: 4
+  spiderSpeed: 3
   time: 91
   veryGoodResult: 190
   GoodResult: 165
   NormalResult: 120
   BadResult: 80
   tempoUpTime: 20
-  boarMinPop: 20
+  boarMinPop: 50
   boarTempoUpSpeed: 10
-  boarMaxPop: 50
-  snakeMinPop: 30
+  boarMaxPop: 100
+  snakeMinPop: 50
   snakeMaxPop: 100
-  snakeTempoUpSpeed: 6
-  spiderMinPop: 40
+  snakeTempoUpSpeed: 5
+  spiderMinPop: 50
   spiderMaxPop: 100
-  spiderTempoUpSpeed: 6
+  spiderTempoUpSpeed: 4
